@@ -10,7 +10,7 @@ def root():
 
 @app.get("/health")
 def health():
-    return {"status": "degraded"}
+    return {"status": "healthy"}
 
 
 @app.get("/info")

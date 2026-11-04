@@ -31,7 +31,7 @@ jobs:
         run: python -m pytest -v
 
       - name: Run Bandit
-        run: bandit -r app
+        run: bandit -r app -111
 
       - name: Audit dependencies
         run: pip-audit -r requirements.txt

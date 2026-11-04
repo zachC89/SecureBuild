@@ -1,5 +1,3 @@
-import subprocess
-
 from fastapi import FastAPI
 
 app = FastAPI()
@@ -21,6 +19,3 @@ def info():
         "name": "SecureBuild Pipeline",
         "version": "1.0.0"
     }
-
-def insecure_demo(command):
-    subprocess.run(command, shell=True)

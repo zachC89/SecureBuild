@@ -55,7 +55,7 @@ jobs:
           scanners: 'vuln'
           vuln-type: 'os'
           severity: 'HIGH,CRITICAL'
-          ignore-unfixed: true
+          ignore-unfixed: false
           exit-code: '1'
           format: 'table'
           version: 'v0.76.1'

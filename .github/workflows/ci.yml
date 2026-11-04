@@ -43,3 +43,19 @@ jobs:
           GITLEAKS_VERSION: 8.30.0
           GITLEAKS_ENABLE_COMMENTS: "false"
           GITLEAKS_ENABLE_UPLOAD_ARTIFACT: "false"
+
+      - name: Build container image
+        run: docker build --pull -t securebuild:ci .
+
+      - name: Run Trivy container security gate
+        uses: aquasecurity/trivy-action@v0.36.0
+        with:
+          scan-type: 'image'
+          image-ref: 'securebuild:ci'
+          scanners: 'vuln'
+          vuln-type: 'os'
+          severity: 'HIGH,CRITICAL'
+          ignore-unfixed: true
+          exit-code: '1'
+          format: 'table'
+          version: 'v0.76.1'

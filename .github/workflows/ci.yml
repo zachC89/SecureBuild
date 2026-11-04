@@ -30,8 +30,8 @@ jobs:
       - name: Run tests
         run: python -m pytest -v
 
-      - name: Run Bandit
-        run: bandit -111 -r app
+      - name: Run Bandit security gate
+        run: bandit -r app --severity-level high
 
       - name: Audit dependencies
         run: pip-audit -r requirements.txt
